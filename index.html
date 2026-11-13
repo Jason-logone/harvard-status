@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="900">
+<title>하버드 임대 현황</title>
+<style>
+:root{--bg:#f6f7f9;--panel:#fff;--fg:#1d2330;--muted:#677084;--line:#dde1e8;--ok:#1f8a4c;--warn:#b26a00;--bad:#c4372f;--c1:#3b6fd8;--c2:#d9822b;--c3:#2f9e8f;--c4:#8a5cc2;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#14171c;--panel:#1c2027;--fg:#e8ebf0;--muted:#98a1b2;--line:#2c323c;--ok:#4cc27e;--warn:#e3a24a;--bad:#ef6b62;--c1:#6b95ea;--c2:#e9a15a;--c3:#4fc0ae;--c4:#a888dc;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 "Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif}
+.page{max-width:1200px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right)) 40px max(16px,env(safe-area-inset-left));display:grid;gap:28px}
+h1{margin:0;font-size:28px;font-weight:600}
+h2{margin:0;font-size:18px;font-weight:600}
+.lede{margin:0;white-space:pre-line}
+.meta,.note,.empty{margin:0;color:var(--muted);font-size:13px}
+.head{display:grid;gap:8px}
+.label{margin:0;color:var(--muted);font-size:13px;letter-spacing:.04em}
+.group,.sec{display:grid;gap:10px;min-width:0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;display:grid;gap:2px;min-width:0}
+.tile .k,.tile .u{color:var(--muted);font-size:13px}
+.tile .v{font-size:26px;font-weight:600;white-space:nowrap;overflow:hidden;font-variant-numeric:tabular-nums}
+.tile.warn{border-color:var(--warn)}.tile.warn .v{color:var(--warn)}
+.tile.bad{border-color:var(--bad)}.tile.bad .v{color:var(--bad)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:28px 24px}
+.wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th{text-align:left;color:var(--muted);font-size:13px;font-weight:600;padding:6px 10px 6px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:7px 10px 7px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.chip{display:inline-block;padding:0 9px;border:1px solid currentColor;border-radius:999px;font-size:13px;white-space:nowrap}
+.chip.ok{color:var(--ok)}.chip.warn{color:var(--warn)}
+.text{margin:0;white-space:pre-line}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;color:var(--muted);font-size:13px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px}
+.gantt{overflow-x:auto}.gantt svg{width:100%;min-width:640px;height:auto}
+.gantt text{fill:var(--fg);font-size:13px}.gantt .tick{fill:var(--muted);font-size:12px}
+.gantt .grid{stroke:var(--line)}.gantt .today{stroke:var(--muted);stroke-width:1.5;stroke-dasharray:4 3}
+</style></head><body><main class="page">
+<header class="head">
+<h1>하버드 임대 현황</h1>
+<p class="lede">특별한 변경 없음 (11/13 23:04 확인). 단기임대 10호 중 공실 1호(103호), 거주중 9호, 장기월세 5호입니다. 오늘 입실은 없고, 퇴실은 103호 최민 게스트 1건(퇴실 완료)이며 11/14에 연장 입주합니다.</p>
+<p class="meta">기준 메일: [하버드 정시 요약] 23시 · 특별한 변경 없음 · 받은 시각 2026-11-13 23:09 (한국시간) · 페이지 갱신 2026-11-14 02:13 · 1시간마다 자동 갱신</p>
+</header>
+<section class="group"><p class="label">객실 현황</p><div class="tiles">
+<div class="tile warn"><span class="k">공실</span><b class="v fit">1</b><span class="u">단기임대 10호 중</span></div><div class="tile "><span class="k">거주중</span><b class="v fit">9</b><span class="u">호</span></div><div class="tile "><span class="k">장기월세</span><b class="v fit">5</b><span class="u">호</span></div><div class="tile "><span class="k">오늘 입실</span><b class="v fit">0</b><span class="u">건</span></div><div class="tile "><span class="k">오늘 퇴실</span><b class="v fit">1</b><span class="u">건</span></div>
+</div></section>
+<section class="group"><p class="label">점검 결과</p><div class="tiles">
+<div class="tile "><span class="k">활성 예약</span><b class="v fit">12건</b></div><div class="tile "><span class="k">블럭 누락</span><b class="v fit">0건</b></div><div class="tile "><span class="k">이중예약</span><b class="v fit">없음</b></div><div class="tile "><span class="k">새 게스트 문의</span><b class="v fit">없음</b></div>
+</div></section>
+<section class="sec"><h2>변경 사항</h2><p class="text">새 계약, 새로 막은 블럭, 답변한 문의, 로그인 복구, 문제 모두 없습니다.</p></section>
+<div class="two">
+<section class="sec"><h2>오늘 입실</h2><p class="empty">오늘 입실 없음</p></section>
+<section class="sec"><h2>오늘 퇴실</h2><div class="wrap"><table><thead><tr><th>호수</th><th>게스트</th><th>사이트</th><th>퇴실 상태</th><th>같은 날 다음 입주</th></tr></thead><tbody><tr><td>103</td><td>최민</td><td>자리톡</td><td>퇴실 완료 (11/13)</td><td>없음 (11/14 최민 연장 입주)</td></tr></tbody></table></div></section>
+</div>
+<section class="sec"><h2>거주 기간 한눈에 보기</h2><p class="note">막대 하나가 한 예약입니다. 흐린 막대는 같은 방에 이어서 잡힌 별도 예약이고, 점선은 메일 기준 오늘입니다.</p><div class="legend"><span><i style="background:var(--c1)"></i>자리톡</span><span><i style="background:var(--c2)"></i>삼삼엠투</span><span><i style="background:var(--c3)"></i>리브애니웨어</span></div><div class="gantt"><svg viewBox="0 0 1000 286" role="img" aria-label="방별 예약 기간 막대 그림"><line class="grid" x1="282.6" x2="282.6" y1="26" y2="278"/><text class="tick" x="282.6" y="18" text-anchor="middle">11/01</text><line class="grid" x1="488.9" x2="488.9" y1="26" y2="278"/><text class="tick" x="488.9" y="18" text-anchor="middle">11/15</text><line class="grid" x1="724.7" x2="724.7" y1="26" y2="278"/><text class="tick" x="724.7" y="18" text-anchor="middle">12/01</text><line class="grid" x1="931.1" x2="931.1" y1="26" y2="278"/><text class="tick" x="931.1" y="18" text-anchor="middle">12/15</text><text class="lab" x="0" y="44.0">101 김용준</text><rect x="430.0" y="32" width="456.8" height="16" rx="3" style="fill:var(--c1);opacity:1"><title>101호 김용준 · 자리톡 · 현재 예약 11/11 ~ 12/12</title></rect><text class="lab" x="0" y="72.0">104 김윤영</text><rect x="400.5" y="60" width="191.6" height="16" rx="3" style="fill:var(--c2);opacity:1"><title>104호 김윤영 · 삼삼엠투 · 현재 예약 11/09 ~ 11/22</title></rect><text class="lab" x="0" y="100.0">105 구영모</text><rect x="430.0" y="88" width="44.2" height="16" rx="3" style="fill:var(--c1);opacity:1"><title>105호 구영모 · 자리톡 · 현재 예약 11/11 ~ 11/14</title></rect><text class="lab" x="0" y="128.0">106 이성구</text><rect x="150.0" y="116" width="825.3" height="16" rx="3" style="fill:var(--c3);opacity:1"><title>106호 이성구 · 리브애니웨어 · 현재 예약 09/24 ~ 12/18</title></rect><text class="lab" x="0" y="156.0">202 최명균</text><rect x="312.1" y="144" width="397.9" height="16" rx="3" style="fill:var(--c2);opacity:1"><title>202호 최명균 · 삼삼엠투 · 현재 예약 11/03 ~ 11/30</title></rect><text class="lab" x="0" y="184.0">204 박하람</text><rect x="371.1" y="172" width="191.6" height="16" rx="3" style="fill:var(--c2);opacity:1"><title>204호 박하람 · 삼삼엠투 · 현재 예약 11/07 ~ 11/20</title></rect><text class="lab" x="0" y="212.0">302 김혜원</text><rect x="150.0" y="200" width="338.9" height="16" rx="3" style="fill:var(--c2);opacity:1"><title>302호 김혜원 · 삼삼엠투 · 현재 예약 10/19 ~ 11/15</title></rect><text class="lab" x="0" y="240.0">303 정혜연</text><rect x="179.5" y="228" width="397.9" height="16" rx="3" style="fill:var(--c2);opacity:1"><title>303호 정혜연 · 삼삼엠투 · 현재 예약 10/25 ~ 11/21</title></rect><text class="lab" x="0" y="268.0">306 Manon Hecq</text><rect x="150.0" y="256" width="840.0" height="16" rx="3" style="fill:var(--c3);opacity:1"><title>306호 Manon Hecq · 리브애니웨어 · 현재 예약 08/18 ~ 12/19</title></rect><line class="today" x1="459.5" x2="459.5" y1="26" y2="278"/></svg></div></section>
+<section class="sec"><h2>거주중 명단</h2><div class="wrap"><table><thead><tr><th>호수</th><th>게스트</th><th>사이트</th><th>기간</th></tr></thead><tbody><tr><td>101</td><td>김용준</td><td>자리톡</td><td>11/11 ~ 12/12</td></tr><tr><td>104</td><td>김윤영</td><td>삼삼엠투</td><td>11/09 ~ 11/22</td></tr><tr><td>105</td><td>구영모</td><td>자리톡</td><td>11/11 ~ 11/14 (이어서 11/17 박소연 입주)</td></tr><tr><td>106</td><td>이성구</td><td>리브애니웨어</td><td>09/24 ~ 12/18</td></tr><tr><td>202</td><td>최명균</td><td>삼삼엠투</td><td>11/03 ~ 11/30</td></tr><tr><td>204</td><td>박하람</td><td>삼삼엠투</td><td>11/07 ~ 11/20</td></tr><tr><td>302</td><td>김혜원</td><td>삼삼엠투</td><td>10/19 ~ 11/15</td></tr><tr><td>303</td><td>정혜연</td><td>삼삼엠투</td><td>10/25 ~ 11/21</td></tr><tr><td>306</td><td>Manon Hecq</td><td>리브애니웨어</td><td>08/18 ~ 12/19</td></tr></tbody></table></div></section>
+<div class="two">
+<section class="sec"><h2>예정</h2><div class="wrap"><table><thead><tr><th>날짜</th><th>호수</th><th>내용</th><th>사이트</th></tr></thead><tbody><tr><td>11/14</td><td>103</td><td>최민 연장 입주 (11/14 ~ 11/20)</td><td>자리톡</td></tr><tr><td>11/14</td><td>105</td><td>구영모 퇴실</td><td>자리톡</td></tr><tr><td>11/15</td><td>302</td><td>김혜원 퇴실</td><td>삼삼엠투</td></tr><tr><td>11/17</td><td>105</td><td>박소연 입주 (11/17 ~ 11/23)</td><td>자리톡</td></tr><tr><td>11/20</td><td>103</td><td>최민 퇴실</td><td>자리톡</td></tr><tr><td>11/20</td><td>204</td><td>박하람 퇴실</td><td>삼삼엠투</td></tr></tbody></table></div></section>
+<section class="sec"><h2>현재 공실</h2><div class="wrap"><table><thead><tr><th>호수</th><th>다음 예약</th><th>비는 밤</th></tr></thead><tbody><tr><td>103</td><td>11/14 최민 입주 (자리톡)</td><td>1박 (11/13)</td></tr></tbody></table></div></section>
+</div>
+<div class="two">
+<section class="sec"><h2>장기월세</h2><div class="wrap"><table><thead><tr><th>호수</th><th>상태</th><th>단기임대 사이트 예약</th></tr></thead><tbody><tr><td>102</td><td>장기월세</td><td>없음</td></tr><tr><td>201</td><td>장기월세</td><td>없음</td></tr><tr><td>206</td><td>장기월세</td><td>없음</td></tr><tr><td>301</td><td>장기월세</td><td>없음</td></tr><tr><td>305</td><td>장기월세</td><td>없음</td></tr></tbody></table></div></section>
+<section class="sec"><h2>로그인·점검 상태</h2><div class="wrap"><table><thead><tr><th>항목</th><th>상태</th></tr></thead><tbody><tr><td>삼삼엠투 로그인</td><td><span class="chip ok">정상</span></td></tr><tr><td>리브애니웨어 로그인</td><td><span class="chip ok">정상</span></td></tr><tr><td>자리톡 로그인</td><td><span class="chip ok">정상</span></td></tr><tr><td>단단홈즈 로그인</td><td><span class="chip ok">정상</span></td></tr><tr><td>Google 로그인</td><td><span class="chip ok">정상</span></td></tr><tr><td>활성 예약</td><td>12건</td></tr><tr><td>블럭 누락</td><td><span class="chip ok">0건</span></td></tr><tr><td>이중예약</td><td><span class="chip ok">없음</span></td></tr><tr><td>새 게스트 문의</td><td><span class="chip ok">없음</span></td></tr><tr><td>확인 시각</td><td>11/13 23:04</td></tr><tr><td>점검 시작</td><td><span class="chip warn">11/13 23:00</span></td></tr></tbody></table></div></section>
+</div>
+<section class="sec"><h2>최근 받은 Aside 메일</h2><div class="wrap"><table><thead><tr><th>받은 시각</th><th>제목</th></tr></thead><tbody><tr><td>2026-11-13 23:09</td><td>[하버드 정시 요약] 23시 · 특별한 변경 없음</td></tr><tr><td>2026-11-13 22:06</td><td>[하버드 정시 요약] 22시 · 특별한 변경 없음</td></tr><tr><td>2026-11-13 21:49</td><td>[하버드 정시 요약] 21시 · 변경 5건</td></tr><tr><td>2026-11-13 17:13</td><td>[하버드 정시 요약] 17시 · 변경 2건</td></tr><tr><td>2026-11-11 15:04</td><td>[하버드 정시 요약] 15시 · 특별한 변경 없음</td></tr><tr><td>2026-11-11 14:53</td><td>[하버드 정시 요약] 14시 수동 · 특별한 변경 없음</td></tr></tbody></table></div></section>
+<p class="note">게스트 핸드폰 번호는 싣지 않습니다.</p>
+</main>
+<script>
+function fit(){document.querySelectorAll('.fit').forEach(function(el){el.style.fontSize='';var fs=parseFloat(getComputedStyle(el).fontSize)||26;while(el.scrollWidth>el.clientWidth+1&&fs>11){fs-=1;el.style.fontSize=fs+'px';}});}
+fit();window.addEventListener('resize',fit);
+</script>
+</body></html>
