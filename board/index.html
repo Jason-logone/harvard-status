@@ -81,7 +81,7 @@ ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px
 @media (max-width:560px){.grid{grid-template-columns:1fr}.card,.span2,.span3,.span1{grid-column:auto}.row2{grid-row:auto}}
 </style></head><body><main class="wrap"><div class="grid">
 
-<section class="card span2"><div class="head"><h1>하버드 임대 현황</h1><div class="meta">21시 · 특별한 변경 없음 · 2026-11-15 21:04 메일 기준 · 확인 11/15 21:03 · 갱신 2026-11-15 23:13</div></div>
+<section class="card span2"><div class="head"><h1>하버드 임대 현황</h1><div class="meta">21시 · 특별한 변경 없음 · 2026-11-15 21:04 메일 기준 · 확인 11/15 21:03 · 갱신 2026-11-15 23:15</div></div>
 <span class="lbl">점검 결과</span><ul class="checks two-col"><li><span class="ic ok">✓</span><span class="k">블럭 누락</span><span class="v">0건</span></li><li><span class="ic ok">✓</span><span class="k">새 게스트 문의</span><span class="v">없음</span></li><li><span class="ic ok">✓</span><span class="k">이중예약</span><span class="v">없음</span></li><li><span class="ic ok">✓</span><span class="k">활성 예약</span><span class="v">11건</span></li></ul></section>
 
 <section class="card dark span3 room-card"><div class="donut-card"><span class="lbl">단기임대 객실현황 총 10호실</span><div class="d-row"><svg viewBox="0 0 120 120" class="donut" role="img" aria-label="단기임대 10호 중 공실 2호, 공실률 20%">
@@ -117,12 +117,12 @@ ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px
 <script>
 function fit(){document.querySelectorAll('.fit').forEach(function(el){el.style.fontSize='';var fs=parseFloat(getComputedStyle(el).fontSize)||28;while(el.scrollWidth>el.clientWidth+1&&fs>11){fs-=1;el.style.fontSize=fs+'px';}});}
 fit();window.addEventListener('resize',fit);
-// 숫자 카드: 왼쪽(거주중·장기월세) 뒤에 빈 폭이 남으면 공실·입실·퇴실 칸을 그 절반만큼 왼쪽으로 당긴다
+// 숫자 카드: 공실·입실·퇴실 칸이 왼쪽(거주중·장기월세) 호수 길이에 붙어 따라 움직이도록, 남는 폭은 모두 오른쪽 끝으로 보낸다
 function balance(){var k=document.querySelector('.kv');if(!k)return;k.style.setProperty('--shift','0px');
 k.querySelectorAll('.rooms').forEach(function(s){s.style.fontSize='';var fs=12;while(s.scrollWidth>s.clientWidth+1&&fs>8){fs-=0.5;s.style.fontSize=fs+'px';}});
 var L=[].filter.call(k.children,function(_,i){return i%3===0;});if(!L.length)return;
 var need=Math.max.apply(null,L.map(function(d){var w=0;[].forEach.call(d.children,function(c){w+=c.scrollWidth;});return w+8*(d.children.length-1);}));
-var free=Math.max(0,L[0].clientWidth-need-8);k.style.setProperty('--shift',Math.round(free/2)+'px');}
+var free=Math.max(0,L[0].clientWidth-need-4);k.style.setProperty('--shift',Math.floor(free)+'px');}
 balance();window.addEventListener('resize',balance);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(balance);
 document.getElementById('upd').addEventListener('click',function(){this.disabled=true;this.textContent='불러오는 중…';location.replace(location.pathname+'?t='+Date.now());});
 </script></body></html>
