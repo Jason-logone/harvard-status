@@ -15,6 +15,9 @@ h2{margin:0;font-size:18px;font-weight:600}
 .lede{margin:0;white-space:pre-line}
 .meta,.note,.empty{margin:0;color:var(--muted);font-size:13px}
 .head{display:grid;gap:8px}
+.top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.upd{flex:none;font:inherit;font-weight:600;color:var(--bg);background:var(--fg);border:1px solid var(--fg);border-radius:8px;padding:6px 16px;cursor:pointer}
+.upd:hover{opacity:.85}.upd:focus-visible{outline:2px solid var(--fg);outline-offset:2px}.upd[disabled]{opacity:.5;cursor:progress}
 .label{margin:0;color:var(--muted);font-size:13px;letter-spacing:.04em}
 .group,.sec{display:grid;gap:10px;min-width:0}
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
@@ -38,9 +41,9 @@ td{padding:7px 10px 7px 0;border-bottom:1px solid var(--line);vertical-align:top
 .gantt .grid{stroke:var(--line)}.gantt .today{stroke:var(--muted);stroke-width:1.5;stroke-dasharray:4 3}
 </style></head><body><main class="page">
 <header class="head">
-<h1>하버드 임대 현황</h1>
+<div class="top"><h1>하버드 임대 현황</h1><button type="button" class="upd" id="upd">업데이트</button></div>
 <p class="lede">특별한 변경 없음 (11/13 23:04 확인). 단기임대 10호 중 공실 1호(103호), 거주중 9호, 장기월세 5호입니다. 오늘 입실은 없고, 퇴실은 103호 최민 게스트 1건(퇴실 완료)이며 11/14에 연장 입주합니다.</p>
-<p class="meta">기준 메일: [하버드 정시 요약] 23시 · 특별한 변경 없음 · 받은 시각 2026-11-13 23:09 (한국시간) · 페이지 갱신 2026-11-14 02:13 · 1시간마다 자동 갱신</p>
+<p class="meta">기준 메일: [하버드 정시 요약] 23시 · 특별한 변경 없음 · 받은 시각 2026-11-13 23:09 (한국시간) · 페이지 갱신 2026-11-15 18:16 · 1시간마다 자동 갱신</p>
 </header>
 <section class="group"><p class="label">객실 현황</p><div class="tiles">
 <div class="tile warn"><span class="k">공실</span><b class="v fit">1</b><span class="u">단기임대 10호 중</span></div><div class="tile "><span class="k">거주중</span><b class="v fit">9</b><span class="u">호</span></div><div class="tile "><span class="k">장기월세</span><b class="v fit">5</b><span class="u">호</span></div><div class="tile "><span class="k">오늘 입실</span><b class="v fit">0</b><span class="u">건</span></div><div class="tile "><span class="k">오늘 퇴실</span><b class="v fit">1</b><span class="u">건</span></div>
@@ -69,5 +72,6 @@ td{padding:7px 10px 7px 0;border-bottom:1px solid var(--line);vertical-align:top
 <script>
 function fit(){document.querySelectorAll('.fit').forEach(function(el){el.style.fontSize='';var fs=parseFloat(getComputedStyle(el).fontSize)||26;while(el.scrollWidth>el.clientWidth+1&&fs>11){fs-=1;el.style.fontSize=fs+'px';}});}
 fit();window.addEventListener('resize',fit);
+document.getElementById('upd').addEventListener('click',function(){this.disabled=true;this.textContent='불러오는 중…';location.replace(location.pathname+'?t='+Date.now());});
 </script>
 </body></html>
