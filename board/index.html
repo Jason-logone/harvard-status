@@ -38,7 +38,7 @@ ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px
 .d-big{fill:#fff;font:700 18px "Pretendard","Malgun Gothic",sans-serif}.d-small{fill:#9aa0aa;font:400 11px "JetBrains Mono",monospace}
 .d-legend{display:flex;gap:12px;font-size:12px;color:#c9ccd2}.d-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
 /* 통계 */
-.line{justify-content:center}.kv{display:grid;grid-template-columns:minmax(0,1fr) max-content;gap:8px 20px;font-size:14px}.kv>div{display:flex;align-items:baseline;gap:8px;min-width:0}.kv .n{white-space:nowrap}.kv b{font-family:"JetBrains Mono",monospace;font-size:clamp(18px,1.6vw,24px);margin:0 2px}.kv .rooms{color:var(--muted);font-size:12px;font-family:"JetBrains Mono","Malgun Gothic",monospace;min-width:0;word-break:keep-all}.kv>div:nth-child(even){justify-content:flex-start}.kv>div:nth-child(even) .rooms{white-space:nowrap}
+.line{justify-content:center}.kv{display:grid;grid-template-columns:minmax(0,1fr) max-content;gap:8px 20px;font-size:14px}.kv>div{display:flex;align-items:baseline;gap:8px;min-width:0}.kv .n{white-space:nowrap}.kv b{font-family:"JetBrains Mono",monospace;font-size:clamp(18px,1.6vw,24px);margin:0 2px}.kv .rooms{color:var(--muted);font-size:12px;font-family:"JetBrains Mono","Malgun Gothic",monospace;min-width:0;word-break:keep-all}.kv>div:nth-child(even){justify-content:flex-start;margin-right:var(--shift,0px)}.kv>div:nth-child(even) .rooms{white-space:nowrap}
 .stat.warn .num{color:var(--amber)}
 /* 점검 */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:3px 22px}.checks li{display:grid;grid-template-columns:20px 1fr auto;gap:8px;align-items:center}
@@ -80,7 +80,7 @@ ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px
 @media (max-width:560px){.grid{grid-template-columns:1fr}.span2{grid-column:auto}.row2{grid-row:auto}}
 </style></head><body><main class="wrap"><div class="grid">
 
-<section class="card span2"><div class="head"><div><h1>하버드 임대 현황</h1><div class="meta">19시 · 변경 2건 · 2026-11-15 19:09 메일 기준 · 확인 11/15 19:08 · 갱신 2026-11-15 19:56</div></div><button type="button" class="upd" id="upd">업데이트</button></div>
+<section class="card span2"><div class="head"><div><h1>하버드 임대 현황</h1><div class="meta">19시 · 변경 2건 · 2026-11-15 19:09 메일 기준 · 확인 11/15 19:08 · 갱신 2026-11-15 20:01</div></div><button type="button" class="upd" id="upd">업데이트</button></div>
 <span class="lbl">점검 결과</span><ul class="checks two-col"><li><span class="ic ok">✓</span><span class="k">블럭 누락</span><span class="v">0건</span></li><li><span class="ic ok">✓</span><span class="k">새 게스트 문의</span><span class="v">없음</span></li><li><span class="ic ok">✓</span><span class="k">이중예약</span><span class="v">없음</span></li><li><span class="ic ok">✓</span><span class="k">활성 예약</span><span class="v">11건</span></li></ul></section>
 
 <section class="card dark donut-card"><span class="lbl">객실 현황 · 단기임대 10호</span><svg viewBox="0 0 120 120" class="donut" role="img" aria-label="단기임대 10호 중 공실 2호, 공실률 20%">
@@ -114,5 +114,11 @@ ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px
 <script>
 function fit(){document.querySelectorAll('.fit').forEach(function(el){el.style.fontSize='';var fs=parseFloat(getComputedStyle(el).fontSize)||28;while(el.scrollWidth>el.clientWidth+1&&fs>11){fs-=1;el.style.fontSize=fs+'px';}});}
 fit();window.addEventListener('resize',fit);
+// 숫자 카드: 가운데 빈 폭이 남으면 오른쪽(입실·퇴실)을 그 절반만큼 왼쪽으로 당긴다
+function balance(){var k=document.querySelector('.kv');if(!k)return;k.style.setProperty('--shift','0px');
+var L=[].filter.call(k.children,function(_,i){return i%2===0;});if(!L.length)return;
+var need=Math.max.apply(null,L.map(function(d){var w=0;[].forEach.call(d.children,function(c){w+=c.scrollWidth;});return w+8*(d.children.length-1);}));
+var free=Math.max(0,L[0].clientWidth-need-8);k.style.setProperty('--shift',Math.round(free/2)+'px');}
+balance();window.addEventListener('resize',balance);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(balance);
 document.getElementById('upd').addEventListener('click',function(){this.disabled=true;this.textContent='불러오는 중…';location.replace(location.pathname+'?t='+Date.now());});
 </script></body></html>
