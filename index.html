@@ -3,76 +3,120 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <meta http-equiv="refresh" content="900">
-<title>하버드 임대 현황</title>
+<title>하버드 임대 현황판</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f6f7f9;--panel:#fff;--fg:#1d2330;--muted:#677084;--line:#dde1e8;--ok:#1f8a4c;--warn:#b26a00;--bad:#c4372f;--c1:#3b6fd8;--c2:#d9822b;--c3:#2f9e8f;--c4:#8a5cc2;color-scheme:light}
-@media (prefers-color-scheme:dark){:root{--bg:#14171c;--panel:#1c2027;--fg:#e8ebf0;--muted:#98a1b2;--line:#2c323c;--ok:#4cc27e;--warn:#e3a24a;--bad:#ef6b62;--c1:#6b95ea;--c2:#e9a15a;--c3:#4fc0ae;--c4:#a888dc;color-scheme:dark}}
+:root{--bg:#e9eaec;--card:#fff;--ink:#16181d;--muted:#8a8f99;--line:#eef0f2;--soft:#f3f4f6;--green:#22c55e;--green-soft:#dcfce7;--amber:#f59e0b;--red:#ef4444;--blue:#3b82f6;--dark:#141518;--dark-ink:#f4f5f7;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0d0e10;--card:#1a1c20;--ink:#eceef2;--muted:#8d939e;--line:#26292f;--soft:#23262b;--green-soft:#163d26;--dark:#000;--dark-ink:#f4f5f7;color-scheme:dark}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 "Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif}
-.page{max-width:1200px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right)) 40px max(16px,env(safe-area-inset-left));display:grid;gap:28px}
-h1{margin:0;font-size:28px;font-weight:600}
-h2{margin:0;font-size:18px;font-weight:600}
-.lede{margin:0;white-space:pre-line}
-.meta,.note,.empty{margin:0;color:var(--muted);font-size:13px}
-.head{display:grid;gap:8px}
-.top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-.upd{flex:none;font:inherit;font-weight:600;color:var(--bg);background:var(--fg);border:1px solid var(--fg);border-radius:8px;padding:6px 16px;cursor:pointer}
-.upd:hover{opacity:.85}.upd:focus-visible{outline:2px solid var(--fg);outline-offset:2px}.upd[disabled]{opacity:.5;cursor:progress}
-.label{margin:0;color:var(--muted);font-size:13px;letter-spacing:.04em}
-.group,.sec{display:grid;gap:10px;min-width:0}
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
-.tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;display:grid;gap:2px;min-width:0}
-.tile .k,.tile .u{color:var(--muted);font-size:13px}
-.tile .v{font-size:26px;font-weight:600;white-space:nowrap;overflow:hidden;font-variant-numeric:tabular-nums}
-.tile.warn{border-color:var(--warn)}.tile.warn .v{color:var(--warn)}
-.tile.bad{border-color:var(--bad)}.tile.bad .v{color:var(--bad)}
-.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:28px 24px}
-.wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-th{text-align:left;color:var(--muted);font-size:13px;font-weight:600;padding:6px 10px 6px 0;border-bottom:1px solid var(--line);white-space:nowrap}
-td{padding:7px 10px 7px 0;border-bottom:1px solid var(--line);vertical-align:top}
-.chip{display:inline-block;padding:0 9px;border:1px solid currentColor;border-radius:999px;font-size:13px;white-space:nowrap}
-.chip.ok{color:var(--ok)}.chip.warn{color:var(--warn)}
-.text{margin:0;white-space:pre-line}
-.legend{display:flex;flex-wrap:wrap;gap:4px 16px;color:var(--muted);font-size:13px}
-.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px}
-.gantt{overflow-x:auto}.gantt svg{width:100%;min-width:640px;height:auto}
-.gantt text{fill:var(--fg);font-size:13px}.gantt .tick{fill:var(--muted);font-size:12px}
-.gantt .grid{stroke:var(--line)}.gantt .today{stroke:var(--muted);stroke-width:1.5;stroke-dasharray:4 3}
-</style></head><body><main class="page">
-<header class="head">
-<div class="top"><h1>하버드 임대 현황</h1><button type="button" class="upd" id="upd">업데이트</button></div>
-<p class="lede">특별한 변경 없음 (11/15 21:03 확인). 단기임대 10호 중 공실 2호(105호, 302호), 거주중 8호, 장기월세 5호입니다.
-오늘 입실은 없고, 퇴실 1건(302호 김혜원, 삼삼엠투 퇴실 점검 대기)입니다. 새 계약과 새 문의는 없고, 블럭 누락 0건, 이중예약은 없습니다. 자리톡 105호 김현주(12/03~12/10) 사전승인이 결제 대기 중입니다.</p>
-<p class="meta">기준 메일: [하버드 정시 요약] 21시 · 특별한 변경 없음 · 받은 시각 2026-11-15 21:04 (한국시간) · 페이지 갱신 2026-11-15 21:28 · 1시간마다 자동 갱신</p>
-</header>
-<section class="group"><p class="label">객실 현황</p><div class="tiles">
-<div class="tile warn"><span class="k">공실</span><b class="v fit">2 (105호, 302호)</b><span class="u">단기임대 10호 중</span></div><div class="tile "><span class="k">거주중</span><b class="v fit">8</b><span class="u">호</span></div><div class="tile "><span class="k">장기월세</span><b class="v fit">5</b><span class="u">호</span></div><div class="tile "><span class="k">오늘 입실</span><b class="v fit">0</b><span class="u">건</span></div><div class="tile "><span class="k">오늘 퇴실</span><b class="v fit">1</b><span class="u">건</span></div>
-</div></section>
-<section class="group"><p class="label">점검 결과</p><div class="tiles">
-<div class="tile "><span class="k">활성 예약</span><b class="v fit">11건</b></div><div class="tile "><span class="k">블럭 누락</span><b class="v fit">0건</b></div><div class="tile "><span class="k">이중예약</span><b class="v fit">없음</b></div><div class="tile "><span class="k">새 게스트 문의</span><b class="v fit">없음</b></div>
-</div></section>
-<section class="sec"><h2>변경 사항</h2><p class="text">새 계약, 새로 막은 블럭, 답변한 문의, 로그인 복구, 문제 모두 없습니다.</p></section>
-<div class="two">
-<section class="sec"><h2>오늘 입실</h2><p class="empty">오늘 입실 없음</p></section>
-<section class="sec"><h2>오늘 퇴실</h2><div class="wrap"><table><thead><tr><th>호수</th><th>게스트</th><th>사이트</th><th>퇴실 상태</th><th>같은 날 다음 입주</th></tr></thead><tbody><tr><td>302</td><td>김혜원</td><td>삼삼엠투</td><td>퇴실중 (퇴실 점검 대기)</td><td>없음</td></tr></tbody></table></div></section>
-</div>
-<section class="sec"><h2>거주 기간 한눈에 보기</h2><p class="note">막대 하나가 한 예약입니다. 흐린 막대는 같은 방에 이어서 잡힌 별도 예약이고, 점선은 메일 기준 오늘입니다.</p><div class="legend"><span><i style="background:var(--c1)"></i>자리톡</span><span><i style="background:var(--c2)"></i>삼삼엠투</span><span><i style="background:var(--c3)"></i>리브애니웨어</span></div><div class="gantt"><svg viewBox="0 0 1000 258" role="img" aria-label="방별 예약 기간 막대 그림"><line class="grid" x1="256.9" x2="256.9" y1="26" y2="250"/><text class="tick" x="256.9" y="18" text-anchor="middle">11/01</text><line class="grid" x1="470.7" x2="470.7" y1="26" y2="250"/><text class="tick" x="470.7" y="18" text-anchor="middle">11/15</text><line class="grid" x1="715.1" x2="715.1" y1="26" y2="250"/><text class="tick" x="715.1" y="18" text-anchor="middle">12/01</text><line class="grid" x1="928.9" x2="928.9" y1="26" y2="250"/><text class="tick" x="928.9" y="18" text-anchor="middle">12/15</text><text class="lab" x="0" y="44.0">101 김용준</text><rect x="409.6" y="32" width="473.5" height="16" rx="3" style="fill:var(--c1);opacity:1"><title>101호 김용준 · 자리톡 · 현재 예약 11/11 ~ 12/12</title></rect><text class="lab" x="0" y="72.0">103 최민</text><rect x="455.5" y="60" width="91.6" height="16" rx="3" style="fill:var(--c1);opacity:1"><title>103호 최민 · 자리톡 · 현재 예약 11/14 ~ 11/20</title></rect><text class="lab" x="0" y="100.0">104 김윤영</text><rect x="379.1" y="88" width="198.5" height="16" rx="3" style="fill:var(--c2);opacity:1"><title>104호 김윤영 · 삼삼엠투 · 현재 예약 11/09 ~ 11/22</title></rect><text class="lab" x="0" y="128.0">106 이성구</text><rect x="150.0" y="116" width="824.7" height="16" rx="3" style="fill:var(--c3);opacity:1"><title>106호 이성구 · 리브애니웨어 · 현재 예약 09/24 ~ 12/18</title></rect><text class="lab" x="0" y="156.0">202 최명균</text><rect x="287.5" y="144" width="412.4" height="16" rx="3" style="fill:var(--c2);opacity:1"><title>202호 최명균 · 삼삼엠투 · 현재 예약 11/03 ~ 11/30</title></rect><text class="lab" x="0" y="184.0">204 박하람</text><rect x="348.5" y="172" width="198.5" height="16" rx="3" style="fill:var(--c2);opacity:1"><title>204호 박하람 · 삼삼엠투 · 현재 예약 11/07 ~ 11/20</title></rect><text class="lab" x="0" y="212.0">303 정혜연</text><rect x="150.0" y="200" width="412.4" height="16" rx="3" style="fill:var(--c2);opacity:1"><title>303호 정혜연 · 삼삼엠투 · 현재 예약 10/25 ~ 11/21</title></rect><text class="lab" x="0" y="240.0">306 Manon Hecq</text><rect x="150.0" y="228" width="840.0" height="16" rx="3" style="fill:var(--c3);opacity:1"><title>306호 Manon Hecq · 리브애니웨어 · 현재 예약 08/18 ~ 12/19</title></rect><line class="today" x1="470.7" x2="470.7" y1="26" y2="250"/></svg></div></section>
-<section class="sec"><h2>거주중 명단</h2><div class="wrap"><table><thead><tr><th>호수</th><th>게스트</th><th>사이트</th><th>기간</th></tr></thead><tbody><tr><td>101</td><td>김용준</td><td>자리톡</td><td>11/11 ~ 12/12</td></tr><tr><td>103</td><td>최민</td><td>자리톡</td><td>11/14 ~ 11/20 (이후 11/29 위다정 입주)</td></tr><tr><td>104</td><td>김윤영</td><td>삼삼엠투</td><td>11/09 ~ 11/22</td></tr><tr><td>106</td><td>이성구</td><td>리브애니웨어</td><td>09/24 ~ 12/18</td></tr><tr><td>202</td><td>최명균</td><td>삼삼엠투</td><td>11/03 ~ 11/30</td></tr><tr><td>204</td><td>박하람</td><td>삼삼엠투</td><td>11/07 ~ 11/20</td></tr><tr><td>303</td><td>정혜연</td><td>삼삼엠투</td><td>10/25 ~ 11/21</td></tr><tr><td>306</td><td>Manon Hecq</td><td>리브애니웨어</td><td>08/18 ~ 12/19</td></tr></tbody></table></div></section>
-<div class="two">
-<section class="sec"><h2>예정</h2><div class="wrap"><table><thead><tr><th>날짜</th><th>호수</th><th>내용</th><th>사이트</th></tr></thead><tbody><tr><td>11/17</td><td>105</td><td>박소연 입주 (11/17 ~ 11/23)</td><td>자리톡</td></tr><tr><td>11/20</td><td>103</td><td>최민 퇴실</td><td>자리톡</td></tr><tr><td>11/20</td><td>204</td><td>박하람 퇴실</td><td>삼삼엠투</td></tr><tr><td>11/21</td><td>303</td><td>정혜연 퇴실</td><td>삼삼엠투</td></tr><tr><td>11/22</td><td>104</td><td>김윤영 퇴실</td><td>삼삼엠투</td></tr><tr><td>결제 대기</td><td>105</td><td>김현주 12/03 ~ 12/10 사전승인 (결제 후 확정)</td><td>자리톡</td></tr></tbody></table></div></section>
-<section class="sec"><h2>현재 공실</h2><div class="wrap"><table><thead><tr><th>호수</th><th>다음 예약</th><th>비는 밤</th></tr></thead><tbody><tr><td>105</td><td>11/17 박소연 입주 (자리톡)</td><td></td></tr><tr><td>302</td><td>예약 없음</td><td></td></tr></tbody></table></div></section>
-</div>
-<div class="two">
-<section class="sec"><h2>장기월세</h2><div class="wrap"><table><thead><tr><th>호수</th><th>상태</th><th>단기임대 사이트 예약</th></tr></thead><tbody><tr><td>102</td><td>장기월세</td><td>없음</td></tr><tr><td>201</td><td>장기월세</td><td>없음</td></tr><tr><td>206</td><td>장기월세</td><td>없음</td></tr><tr><td>301</td><td>장기월세</td><td>없음</td></tr><tr><td>305</td><td>장기월세</td><td>없음</td></tr></tbody></table></div></section>
-<section class="sec"><h2>로그인·점검 상태</h2><div class="wrap"><table><thead><tr><th>항목</th><th>상태</th></tr></thead><tbody><tr><td>삼삼엠투 로그인</td><td><span class="chip ok">정상</span></td></tr><tr><td>리브애니웨어 로그인</td><td><span class="chip ok">정상</span></td></tr><tr><td>자리톡 로그인</td><td><span class="chip ok">정상</span></td></tr><tr><td>단단홈즈 로그인</td><td><span class="chip ok">정상</span></td></tr><tr><td>Google 로그인</td><td><span class="chip ok">정상</span></td></tr><tr><td>활성 예약</td><td>11건</td></tr><tr><td>블럭 누락</td><td><span class="chip ok">0건</span></td></tr><tr><td>이중예약</td><td><span class="chip ok">없음</span></td></tr><tr><td>새 게스트 문의</td><td><span class="chip ok">없음</span></td></tr><tr><td>확인 시각</td><td>11/15 21:03</td></tr><tr><td>점검 시작</td><td><span class="chip warn">11/15 21:00</span></td></tr></tbody></table></div></section>
-</div>
-<section class="sec"><h2>최근 받은 Aside 메일</h2><div class="wrap"><table><thead><tr><th>받은 시각</th><th>제목</th></tr></thead><tbody><tr><td>2026-11-15 21:04</td><td>[하버드 정시 요약] 21시 · 특별한 변경 없음</td></tr><tr><td>2026-11-15 20:09</td><td>[하버드 정시 요약] 20시 · 특별한 변경 없음</td></tr><tr><td>2026-11-15 19:09</td><td>[하버드 정시 요약] 19시 · 변경 2건</td></tr><tr><td>2026-11-15 17:49</td><td>[하버드 정시 요약] 17시 · 특별한 변경 없음</td></tr><tr><td>2026-11-13 23:09</td><td>[하버드 정시 요약] 23시 · 특별한 변경 없음</td></tr><tr><td>2026-11-13 22:06</td><td>[하버드 정시 요약] 22시 · 특별한 변경 없음</td></tr><tr><td>2026-11-13 17:13</td><td>[하버드 정시 요약] 17시 · 변경 2건</td></tr><tr><td>2026-11-11 15:04</td><td>[하버드 정시 요약] 15시 · 특별한 변경 없음</td></tr><tr><td>2026-11-11 14:53</td><td>[하버드 정시 요약] 14시 수동 · 특별한 변경 없음</td></tr></tbody></table></div></section>
-<p class="note">게스트 핸드폰 번호는 싣지 않습니다.</p>
-</main>
+body{margin:0;background:var(--bg);color:var(--ink);font:clamp(12px,.85vw,14px)/1.45 "Pretendard","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif}
+.wrap{max-width:none;margin:0;padding:12px max(14px,env(safe-area-inset-right)) 24px max(14px,env(safe-area-inset-left))}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;grid-auto-flow:dense}
+.card{background:var(--card);border-radius:18px;padding:10px 14px;min-width:0;display:flex;flex-direction:column;gap:5px}
+.dark{background:var(--dark);color:var(--dark-ink)}
+.span2{grid-column:span 2}.row2{grid-row:span 2}
+.lbl{color:var(--muted);font-size:12px;font-weight:600}
+.dark .lbl{color:#9aa0aa}
+.num{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:30px;font-weight:700;line-height:1.05;white-space:nowrap;overflow:hidden}
+.sub,.muted,.s{color:var(--muted);font-size:12px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
+/* 머리 */
+.head{display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.head h1{margin:0;font-size:clamp(26px,2.5vw,40px);line-height:1.15;letter-spacing:-.02em}
+.head .meta{color:var(--muted);font-size:12px}
+.upd{font:inherit;font-weight:700;color:#fff;background:var(--dark);border:0;border-radius:999px;padding:8px 18px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.upd::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+.upd:hover{opacity:.85}.upd:focus-visible{outline:2px solid var(--green);outline-offset:2px}.upd[disabled]{opacity:.5}
+.summary{font-size:12.5px;white-space:pre-line;color:var(--ink)}
+/* 도넛 */
+.donut-card{align-items:center;justify-content:center;text-align:center}
+.donut{width:clamp(84px,7vw,120px);height:clamp(84px,7vw,120px)}
+.ring-bg{fill:none;stroke:#2c2f35;stroke-width:12}
+.ring-occ{fill:none;stroke:var(--green);stroke-width:12;stroke-linecap:round}
+.d-big{fill:#fff;font:700 18px "Pretendard","Malgun Gothic",sans-serif}.d-small{fill:#9aa0aa;font:400 11px "JetBrains Mono",monospace}
+.d-legend{display:flex;gap:12px;font-size:12px;color:#c9ccd2}.d-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
+/* 통계 */
+.line{justify-content:center}.kv{display:grid;grid-template-columns:minmax(0,1fr) max-content;gap:8px 20px;font-size:14px}.kv>div{display:flex;align-items:baseline;gap:8px;min-width:0}.kv .n{white-space:nowrap}.kv b{font-family:"JetBrains Mono",monospace;font-size:clamp(18px,1.6vw,24px);margin:0 2px}.kv .rooms{color:var(--muted);font-size:12px;font-family:"JetBrains Mono","Malgun Gothic",monospace;min-width:0;word-break:keep-all}.kv>div:nth-child(even){justify-content:flex-start;margin-right:var(--shift,0px)}.kv>div:nth-child(even) .rooms{white-space:nowrap}
+.stat.warn .num{color:var(--amber)}
+/* 점검 */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:3px 22px}.checks li{display:grid;grid-template-columns:20px 1fr auto;gap:8px;align-items:center}
+.ic{width:18px;height:18px;border-radius:6px;display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff}
+.ic.ok{background:var(--green)}.ic.bad{background:var(--red)}
+.checks .v{color:var(--muted);font-size:12px;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
+.logins{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}.logins li{display:flex;justify-content:space-between;align-items:center;gap:6px;min-width:0}
+.sw{width:30px;height:18px;border-radius:999px;background:var(--soft);position:relative;flex:none}
+.sw i{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.sw.on{background:var(--green)}.sw.on i{left:14px}.sw.warn{background:var(--amber)}.sw.warn i{left:14px}
+/* 목록 */
+.io li,.vac li{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.dot{width:8px;height:8px;border-radius:50%;flex:none;display:inline-block;transform:translateY(-1px)}
+.dot.in{background:var(--green)}.dot.out{background:var(--red)}.dot.etc{background:var(--blue)}
+.pill{background:var(--green-soft);color:var(--ink);border-radius:999px;padding:0 8px;font-size:12px}
+.plan li,.mails li{display:grid;grid-template-columns:auto 10px 1fr;gap:8px;align-items:baseline}
+.mails li{grid-template-columns:auto 1fr}
+.date{font-family:"JetBrains Mono",monospace;color:var(--muted);font-size:12px;white-space:nowrap}
+.t{min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:"JetBrains Mono",monospace;background:var(--soft);border-radius:999px;padding:3px 10px;font-size:12px}
+.msg{background:var(--soft);border-radius:12px;padding:8px 10px;font-size:12.5px;white-space:pre-line}
+/* 막대 */
+.g-head,.g-row{display:grid;grid-template-columns:96px 1fr 44px;gap:8px;align-items:center}
+.g-ticks{position:relative;height:28px;color:var(--muted);font-size:11px}
+.g-ticks span,.g-ticks em{position:absolute;transform:translateX(-50%);white-space:nowrap}.g-ticks span{top:14px}.g-ticks em{top:0}
+.g-ticks em{font-style:normal;color:var(--green);font-weight:700}
+.g-body{display:flex;flex-direction:column;gap:4px;position:relative}
+.g-lab{display:flex;gap:6px;align-items:baseline;min-width:0}
+.g-lab b{font-family:"JetBrains Mono",monospace}.g-lab span{color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.g-track{position:relative;height:14px;background:var(--soft);border-radius:999px;overflow:hidden}
+.g-track::after{content:"";position:absolute;top:0;bottom:0;left:var(--today);width:2px;background:var(--ink);opacity:.35}
+.bar{position:absolute;top:0;bottom:0;border-radius:999px}.bar.next{opacity:.35}
+.g-endh{align-self:end;font-size:11px;color:var(--muted);text-align:right;white-space:nowrap}.g-end{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);text-align:right}
+.legend{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:12px}.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
+.foot{color:var(--muted);font-size:11px;text-align:center;margin-top:6px}
+@media (max-width:1366px){.card{padding:9px 12px}.grid{gap:8px}}
+@media (max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}.span2{grid-column:auto}.row2{grid-row:auto}}
+</style></head><body><main class="wrap"><div class="grid">
+
+<section class="card span2"><div class="head"><div><h1>하버드 임대 현황</h1><div class="meta">21시 · 특별한 변경 없음 · 2026-11-15 21:04 메일 기준 · 확인 11/15 21:03 · 갱신 2026-11-15 21:41</div></div><button type="button" class="upd" id="upd">업데이트</button></div>
+<span class="lbl">점검 결과</span><ul class="checks two-col"><li><span class="ic ok">✓</span><span class="k">블럭 누락</span><span class="v">0건</span></li><li><span class="ic ok">✓</span><span class="k">새 게스트 문의</span><span class="v">없음</span></li><li><span class="ic ok">✓</span><span class="k">이중예약</span><span class="v">없음</span></li><li><span class="ic ok">✓</span><span class="k">활성 예약</span><span class="v">11건</span></li></ul></section>
+
+<section class="card dark donut-card"><span class="lbl">객실 현황 · 단기임대 10호</span><svg viewBox="0 0 120 120" class="donut" role="img" aria-label="단기임대 10호 중 공실 2호, 공실률 20%">
+<circle cx="60" cy="60" r="46" class="ring-bg"/>
+<circle cx="60" cy="60" r="46" class="ring-occ" stroke-dasharray="231.2 289.0" transform="rotate(-90 60 60)"/>
+<text x="60" y="62" text-anchor="middle" class="d-big">공실률</text>
+<text x="60" y="80" text-anchor="middle" class="d-small">20%</text></svg>
+<div class="d-legend"><span><i style="background:var(--green)"></i>사용 8</span><span><i style="background:#2c2f35;outline:1px solid #555"></i>공실 2</span></div>
+<div class="mono" style="font-size:13px">공실 105호, 302호</div></section>
+
+<section class="card login-card"><span class="lbl">사이트 로그인</span><ul class="logins"><li><span class="k">삼삼엠투</span><span class="sw on" title="정상"><i></i></span></li><li><span class="k">리브애니웨어</span><span class="sw on" title="정상"><i></i></span></li><li><span class="k">자리톡</span><span class="sw on" title="정상"><i></i></span></li><li><span class="k">단단홈즈</span><span class="sw on" title="정상"><i></i></span></li></ul></section>
+
+<section class="card span2"><div class="summary">특별한 변경 없음 (11/15 21:03 확인). 단기임대 10호 중 공실 2호(105호, 302호), 거주중 8호, 장기월세 5호입니다.
+오늘 입실은 없고, 퇴실 1건(302호 김혜원, 삼삼엠투 퇴실 점검 대기)입니다. 새 계약과 새 문의는 없고, 블럭 누락 0건, 이중예약은 없습니다. 자리톡 105호 김현주(12/03~12/10) 사전승인이 결제 대기 중입니다.</div></section>
+
+<section class="card span2 line"><div class="kv"><div><span class="n">거주중 <b>8</b>호</span><span class="rooms">101호, 103호, 104호, 106호, 202호, 204호, 303호, 306호</span></div><div><span class="n">오늘 입실 <b>0</b>건</span></div><div><span class="n">장기월세 <b>5</b>호</span><span class="rooms">102호, 201호, 206호, 301호, 305호</span></div><div><span class="n">오늘 퇴실 <b>1</b>건</span><span class="rooms">302호</span></div></div></section>
+
+<section class="card span2 row2"><span class="lbl">거주 기간 · 2주 전 ~ 앞으로</span><div class="g-head"><div></div><div class="g-ticks"><span style="left:0.00%">11/1</span><span style="left:29.17%">11/15</span><span style="left:62.50%">12/1</span><span style="left:91.67%">12/15</span><em style="left:29.17%">오늘</em></div><div class="g-endh">퇴실일</div></div><div class="g-body" style="--today:29.17%"><div class="g-row"><div class="g-lab"><b>101</b><span>김용준</span></div><div class="g-track"><i class="bar" style="left:20.83%;width:64.58%;background:#22c55e" title="101호 김용준 · 자리톡 · 11/11~12/12"></i></div><div class="g-end">~12/12</div></div><div class="g-row"><div class="g-lab"><b>103</b><span>최민</span></div><div class="g-track"><i class="bar" style="left:27.08%;width:12.50%;background:#22c55e" title="103호 최민 · 자리톡 · 11/14~11/20"></i></div><div class="g-end">~11/20</div></div><div class="g-row"><div class="g-lab"><b>104</b><span>김윤영</span></div><div class="g-track"><i class="bar" style="left:16.67%;width:27.08%;background:#3b82f6" title="104호 김윤영 · 삼삼엠투 · 11/09~11/22"></i></div><div class="g-end">~11/22</div></div><div class="g-row"><div class="g-lab"><b>106</b><span>이성구</span></div><div class="g-track"><i class="bar" style="left:0.00%;width:97.92%;background:#f59e0b" title="106호 이성구 · 리브애니웨어 · 09/24~12/18"></i></div><div class="g-end">~12/18</div></div><div class="g-row"><div class="g-lab"><b>202</b><span>최명균</span></div><div class="g-track"><i class="bar" style="left:4.17%;width:56.25%;background:#3b82f6" title="202호 최명균 · 삼삼엠투 · 11/03~11/30"></i></div><div class="g-end">~11/30</div></div><div class="g-row"><div class="g-lab"><b>204</b><span>박하람</span></div><div class="g-track"><i class="bar" style="left:12.50%;width:27.08%;background:#3b82f6" title="204호 박하람 · 삼삼엠투 · 11/07~11/20"></i></div><div class="g-end">~11/20</div></div><div class="g-row"><div class="g-lab"><b>303</b><span>정혜연</span></div><div class="g-track"><i class="bar" style="left:0.00%;width:41.67%;background:#3b82f6" title="303호 정혜연 · 삼삼엠투 · 10/25~11/21"></i></div><div class="g-end">~11/21</div></div><div class="g-row"><div class="g-lab"><b>306</b><span>Manon Hecq</span></div><div class="g-track"><i class="bar" style="left:0.00%;width:100.00%;background:#f59e0b" title="306호 Manon Hecq · 리브애니웨어 · 08/18~12/19"></i></div><div class="g-end">~12/19</div></div></div><div class="legend"><span><i style="background:#22c55e"></i>자리톡</span><span><i style="background:#3b82f6"></i>삼삼엠투</span><span><i style="background:#f59e0b"></i>리브애니웨어</span></div></section>
+
+<section class="card"><span class="lbl">오늘 입실·퇴실</span><ul class="io"><li><i class="dot out"></i><b>302</b> 퇴실 · 김혜원<span class="s">퇴실중 (퇴실 점검 대기)</span></li></ul></section>
+<section class="card"><span class="lbl">현재 공실</span><ul class="vac"><li><b>105호</b><span class="pill"></span><span class="s">11/17 박소연 입주 (자리톡)</span></li><li><b>302호</b><span class="pill"></span><span class="s">예약 없음</span></li></ul></section>
+<section class="card"><span class="lbl">예정</span><ul class="plan"><li><span class="date">11/17</span><i class="dot in"></i><span class="t"><b>105</b> 박소연 입주 (11/17 ~ 11/23)</span></li><li><span class="date">11/20</span><i class="dot out"></i><span class="t"><b>103</b> 최민 퇴실</span></li><li><span class="date">11/20</span><i class="dot out"></i><span class="t"><b>204</b> 박하람 퇴실</span></li><li><span class="date">11/21</span><i class="dot out"></i><span class="t"><b>303</b> 정혜연 퇴실</span></li><li><span class="date">11/22</span><i class="dot out"></i><span class="t"><b>104</b> 김윤영 퇴실</span></li><li><span class="date">결제 대기</span><i class="dot etc"></i><span class="t"><b>105</b> 김현주 12/03 ~ 12/10 사전승인 (결제 후 확정)</span></li></ul></section>
+<section class="card"><span class="lbl">변경 사항</span><div class="msg">새 계약, 새로 막은 블럭, 답변한 문의, 로그인 복구, 문제 모두 없습니다.</div></section>
+
+<section class="card"><span class="lbl">장기월세 5호</span><div class="chips"><span class="chip">102</span><span class="chip">201</span><span class="chip">206</span><span class="chip">301</span><span class="chip">305</span></div></section>
+<section class="card span2"><span class="lbl">최근 Aside 메일 2개</span><ul class="mails"><li><span class="date">11/15 21:04</span><span class="t">21시 · 특별한 변경 없음</span></li><li><span class="date">11/15 20:09</span><span class="t">20시 · 특별한 변경 없음</span></li></ul></section>
+
+</div><p class="foot">1시간마다 자동 갱신 · 게스트 핸드폰 번호는 싣지 않습니다</p></main>
 <script>
-function fit(){document.querySelectorAll('.fit').forEach(function(el){el.style.fontSize='';var fs=parseFloat(getComputedStyle(el).fontSize)||26;while(el.scrollWidth>el.clientWidth+1&&fs>11){fs-=1;el.style.fontSize=fs+'px';}});}
+function fit(){document.querySelectorAll('.fit').forEach(function(el){el.style.fontSize='';var fs=parseFloat(getComputedStyle(el).fontSize)||28;while(el.scrollWidth>el.clientWidth+1&&fs>11){fs-=1;el.style.fontSize=fs+'px';}});}
 fit();window.addEventListener('resize',fit);
+// 숫자 카드: 가운데 빈 폭이 남으면 오른쪽(입실·퇴실)을 그 절반만큼 왼쪽으로 당긴다
+function balance(){var k=document.querySelector('.kv');if(!k)return;k.style.setProperty('--shift','0px');
+var L=[].filter.call(k.children,function(_,i){return i%2===0;});if(!L.length)return;
+var need=Math.max.apply(null,L.map(function(d){var w=0;[].forEach.call(d.children,function(c){w+=c.scrollWidth;});return w+8*(d.children.length-1);}));
+var free=Math.max(0,L[0].clientWidth-need-8);k.style.setProperty('--shift',Math.round(free/2)+'px');}
+balance();window.addEventListener('resize',balance);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(balance);
 document.getElementById('upd').addEventListener('click',function(){this.disabled=true;this.textContent='불러오는 중…';location.replace(location.pathname+'?t='+Date.now());});
-</script>
-</body></html>
+</script></body></html>
