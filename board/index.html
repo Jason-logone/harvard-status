@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#e9eaec;--card:#fff;--ink:#16181d;--muted:#8a8f99;--line:#eef0f2;--soft:#f3f4f6;--green:#22c55e;--green-soft:#dcfce7;--amber:#f59e0b;--red:#ef4444;--blue:#3b82f6;--dark:#141518;--dark-ink:#f4f5f7;color-scheme:light}
-@media (prefers-color-scheme:dark){:root{--bg:#0d0e10;--card:#1a1c20;--ink:#eceef2;--muted:#8d939e;--line:#26292f;--soft:#23262b;--green-soft:#163d26;--dark:#000;--dark-ink:#f4f5f7;color-scheme:dark}}
+:root{--bg:#e9eaec;--card:#fff;--ink:#16181d;--muted:#8a8f99;--line:#eef0f2;--soft:#f3f4f6;--green:#22c55e;--green-soft:#dcfce7;--amber:#f59e0b;--red:#ef4444;--blue:#3b82f6;--dark:#141518;--dark-ink:#f4f5f7;--yellow:#b88a00;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0d0e10;--card:#1a1c20;--ink:#eceef2;--muted:#8d939e;--line:#26292f;--soft:#23262b;--green-soft:#163d26;--dark:#000;--dark-ink:#f4f5f7;--yellow:#facc15;color-scheme:dark}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:clamp(12px,.85vw,14px)/1.45 "Pretendard","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif}
 .wrap{max-width:none;margin:0;padding:12px max(14px,env(safe-area-inset-right)) 24px max(14px,env(safe-area-inset-left))}
@@ -72,7 +72,7 @@ ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px
 .g-track{position:relative;height:14px;background:var(--soft);border-radius:999px;overflow:hidden}
 .g-track::after{content:"";position:absolute;top:0;bottom:0;left:var(--today);width:2px;background:var(--ink);opacity:.35}
 .bar{position:absolute;top:0;bottom:0;border-radius:999px}.bar.next{opacity:.35}
-.vac-bar{position:absolute;top:2px;bottom:2px;border-radius:999px;background:repeating-linear-gradient(45deg,var(--amber) 0 4px,transparent 4px 8px);opacity:.6}.arr{position:absolute;top:1px;width:12px;height:12px;margin-left:-6px;border-radius:50%;border:2px solid var(--card);box-shadow:0 0 0 1px var(--ink)}.vac-lab{color:var(--amber)!important;font-weight:700}.g-end.in{color:var(--green);font-weight:700;line-height:1.15}.lg-vac{background:repeating-linear-gradient(45deg,var(--amber) 0 3px,transparent 3px 6px)!important;border-radius:2px!important}.lg-arr{border:2px solid var(--ink);box-sizing:border-box}.g-endh{align-self:end;font-size:11px;color:var(--muted);text-align:right;white-space:nowrap}.g-end{font-family:"JetBrains Mono",monospace;font-size:11px;color:#facc15;text-align:right}
+.vac-bar{position:absolute;top:2px;bottom:2px;border-radius:999px;background:repeating-linear-gradient(45deg,var(--amber) 0 4px,transparent 4px 8px);opacity:.6}.arr{position:absolute;top:1px;width:12px;height:12px;margin-left:-6px;border-radius:50%;border:2px solid var(--card);box-shadow:0 0 0 1px var(--ink)}.vac-lab{color:var(--amber)!important;font-weight:700}.g-end.in{color:var(--green);font-weight:700;line-height:1.15}.lg-vac{background:repeating-linear-gradient(45deg,var(--amber) 0 3px,transparent 3px 6px)!important;border-radius:2px!important}.lg-arr{border:2px solid var(--ink);box-sizing:border-box}.g-endh{align-self:end;font-size:11px;color:var(--muted);text-align:right;white-space:nowrap}.g-end{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--yellow);font-weight:700;text-align:right}
 .legend{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:12px}.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
 .foot{color:var(--muted);font-size:11px;text-align:center;margin-top:6px}
 @media (max-width:1366px){.card{padding:9px 12px}.grid{gap:8px}}
@@ -80,7 +80,7 @@ ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px
 @media (max-width:560px){.grid{grid-template-columns:1fr}.span2{grid-column:auto}.row2{grid-row:auto}}
 </style></head><body><main class="wrap"><div class="grid">
 
-<section class="card span2"><div class="head"><div><h1>하버드 임대 현황</h1><div class="meta">21시 · 특별한 변경 없음 · 2026-11-15 21:04 메일 기준 · 확인 11/15 21:03 · 갱신 2026-11-15 21:59</div></div><button type="button" class="upd" id="upd">업데이트</button></div>
+<section class="card span2"><div class="head"><div><h1>하버드 임대 현황</h1><div class="meta">21시 · 특별한 변경 없음 · 2026-11-15 21:04 메일 기준 · 확인 11/15 21:03 · 갱신 2026-11-15 22:00</div></div><button type="button" class="upd" id="upd">업데이트</button></div>
 <span class="lbl">점검 결과</span><ul class="checks two-col"><li><span class="ic ok">✓</span><span class="k">블럭 누락</span><span class="v">0건</span></li><li><span class="ic ok">✓</span><span class="k">새 게스트 문의</span><span class="v">없음</span></li><li><span class="ic ok">✓</span><span class="k">이중예약</span><span class="v">없음</span></li><li><span class="ic ok">✓</span><span class="k">활성 예약</span><span class="v">11건</span></li></ul></section>
 
 <section class="card dark donut-card"><span class="lbl">객실 현황 · 단기임대 10호</span><svg viewBox="0 0 120 120" class="donut" role="img" aria-label="단기임대 10호 중 공실 2호, 공실률 20%">
