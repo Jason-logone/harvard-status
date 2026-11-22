@@ -81,7 +81,7 @@ ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px
 @media (max-width:560px){.grid{grid-template-columns:1fr}.card,.span2,.span3,.span1{grid-column:auto}.row2{grid-row:auto}}
 </style></head><body><main class="wrap"><div class="grid">
 
-<section class="card span2"><div class="head"><h1>하버드 임대 현황</h1><div class="meta">23시 수동 · 특별한 변경 없음 · 2026-11-22 23:32 메일 기준 · 확인 11/22 23:31 · 갱신 2026-11-23 01:17</div></div>
+<section class="card span2"><div class="head"><h1>하버드 임대 현황</h1><div class="meta">23시 수동 · 특별한 변경 없음 · 2026-11-22 23:32 메일 기준 · 확인 11/22 23:31 · 갱신 2026-11-23 01:37</div></div>
 <span class="lbl">점검 결과</span><ul class="checks two-col"><li><span class="ic ok">✓</span><span class="k">블럭 누락</span><span class="v">0건</span></li><li><span class="ic ok">✓</span><span class="k">새 게스트 문의</span><span class="v">없음</span></li><li><span class="ic ok">✓</span><span class="k">이중예약</span><span class="v">없음</span></li><li><span class="ic ok">✓</span><span class="k">활성 예약</span><span class="v">7건 (오늘 이후 퇴실: 삼삼엠투 1·리브애니웨어 2·자리톡 4)</span></li></ul></section>
 
 <section class="card dark span3 room-card"><div class="donut-card"><span class="lbl">단기임대 객실현황 총 10호실</span><div class="d-row"><svg viewBox="0 0 120 120" class="donut" role="img" aria-label="단기임대 10호 중 공실 4호, 공실률 40%">
@@ -127,5 +127,8 @@ var free=Math.max(0,L[0].clientWidth-need-4);k.style.setProperty('--shift',Math.
 balance();window.addEventListener('resize',balance);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(balance);
 // 전체 화면: 크롬의 탭·주소창 없이 현황판만 화면 가득(Esc 로 끝내기)
 (function(){var b=document.getElementById('fs');var d=document.documentElement;if(!b)return;if(!(d.requestFullscreen||d.webkitRequestFullscreen)){b.hidden=true;return;}function sync(){var on=!!(document.fullscreenElement||document.webkitFullscreenElement);b.querySelector('.fs-on').hidden=on;b.querySelector('.fs-off').hidden=!on;}b.addEventListener('click',function(){if(document.fullscreenElement||document.webkitFullscreenElement){(document.exitFullscreen||document.webkitExitFullscreen).call(document);}else{var r=(d.requestFullscreen||d.webkitRequestFullscreen).call(d);if(r&&r.catch)r.catch(function(){});}});document.addEventListener('fullscreenchange',sync);document.addEventListener('webkitfullscreenchange',sync);})();
-document.getElementById('upd').addEventListener('click',function(){this.disabled=true;this.textContent='불러오는 중…';location.replace(location.pathname+'?t='+Date.now());});
+// 바탕화면 바로가기(?app=1)로 열었을 때만: Esc 를 누르면 창을 바로 닫는다. 일반 탭에서는 아무 일도 하지 않는다.
+var APP=/[?&]app=1/.test(location.search);
+document.addEventListener('keydown',function(e){if(APP&&e.key==='Escape'&&!(document.fullscreenElement||document.webkitFullscreenElement)){window.close();}});
+document.getElementById('upd').addEventListener('click',function(){this.disabled=true;this.textContent='불러오는 중…';location.replace(location.pathname+'?'+(APP?'app=1&':'')+'t='+Date.now());});
 </script></body></html>
